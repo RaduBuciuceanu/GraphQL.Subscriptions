@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace GraphQL.Subscriptions.WebSockets
 {
-    public class Send : ISend
+    internal class Send : ISend
     {
         private readonly WebSocket _socket;
 

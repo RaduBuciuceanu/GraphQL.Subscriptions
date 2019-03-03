@@ -5,7 +5,7 @@ using GraphQl.Subscriptions.Core;
 
 namespace GraphQL.Subscriptions.WebSockets
 {
-    public class ShouldReceive : IShouldReceive
+    internal class ShouldReceive : IShouldReceive
     {
         private readonly WebSocket _socket;
 

@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace GraphQL.Subscriptions.WebSockets
 {
-    public class Receive : IReceive
+    internal class Receive : IReceive
     {
         private readonly WebSocket _socket;
 
@@ -29,23 +29,27 @@ namespace GraphQL.Subscriptions.WebSockets
         {
             using (var memoryStream = new MemoryStream())
             {
-                WebSocketReceiveResult receiveResult;
-                var segment = new ArraySegment<byte>(new byte[1024 * 4]);
-
-                do
-                {
-                    receiveResult = await _socket.ReceiveAsync(segment, CancellationToken.None);
-
-                    if (receiveResult.Count == 0)
-                    {
-                        continue;
-                    }
-
-                    await memoryStream.WriteAsync(segment.Array, segment.Offset, receiveResult.Count);
-                } while (!receiveResult.EndOfMessage || memoryStream.Length == 0);
-
+                await PopulateStream(memoryStream);
                 return Encoding.UTF8.GetString(memoryStream.ToArray());
             }
+        }
+
+        private async Task PopulateStream(Stream stream)
+        {
+            WebSocketReceiveResult receiveResult;
+            var segment = new ArraySegment<byte>(new byte[1024 * 4]);
+
+            do
+            {
+                receiveResult = await _socket.ReceiveAsync(segment, CancellationToken.None);
+
+                if (receiveResult.Count == 0)
+                {
+                    continue;
+                }
+
+                await stream.WriteAsync(segment.Array, segment.Offset, receiveResult.Count);
+            } while (!receiveResult.EndOfMessage || stream.Length == 0);
         }
     }
 }
