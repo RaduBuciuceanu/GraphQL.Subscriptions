@@ -2,9 +2,9 @@
 
 ## Usage
 ```c#
-using GraphQl.Subscriptions.WebSockets.Apollo.Extensions;
-Or
-using GraphQl.Subscriptions.WebSockets.Extensions;
+...
+using GraphQl.Subscriptions.WebSockets.Apollo.Extensions; or using GraphQl.Subscriptions.WebSockets.Extensions;
+...
 
 public class Startup
 {
