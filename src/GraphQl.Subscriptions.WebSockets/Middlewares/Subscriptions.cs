@@ -11,17 +11,21 @@ namespace GraphQL.Subscriptions.WebSockets.Middlewares
     internal class Subscriptions
     {
         private readonly RequestDelegate _next;
+        private readonly string _path;
+        private readonly string _protocol;
 
-        public Subscriptions(RequestDelegate next)
+        public Subscriptions(RequestDelegate next, string path, string protocol)
         {
             _next = next;
+            _path = path;
+            _protocol = protocol;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            if (context.Request.Path == "/graphql" && context.WebSockets.IsWebSocketRequest)
+            if (context.Request.Path == _path && context.WebSockets.IsWebSocketRequest)
             {
-                WebSocket socket = await context.WebSockets.AcceptWebSocketAsync("graphql-ws").ConfigureAwait(false);
+                WebSocket socket = await context.WebSockets.AcceptWebSocketAsync(_protocol).ConfigureAwait(false);
                 StartCommunication(socket, context.RequestServices);
             }
             else
