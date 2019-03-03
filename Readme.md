@@ -11,7 +11,8 @@ public class Startup
     public static void Configure(IApplicationBuilder builder)
     {
         ...
-        builder.UseGraphQlSubscriptions();
+        builder.UseWebSockets();
+        builder.UseSubscriptions();
         ...
     }
 }  
