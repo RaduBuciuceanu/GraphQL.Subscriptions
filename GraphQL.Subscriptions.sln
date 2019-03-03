@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FD7397BD-E121-4F9E-9646-7E6F72820B79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQl.Subscriptions.WebSockets", "src\GraphQl.Subscriptions.WebSockets\GraphQl.Subscriptions.WebSockets.csproj", "{83D4F5C7-DC16-4FF6-9E98-A4FB5480A64E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQl.Subscriptions.WebSockets.Apollo", "src\GraphQl.Subscriptions.WebSockets.Apollo\GraphQl.Subscriptions.WebSockets.Apollo.csproj", "{5C522750-F590-4DF9-BEEA-B088BF7CAAAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQl.Subscriptions.Core", "src\GraphQl.Subscriptions.Core\GraphQl.Subscriptions.Core.csproj", "{04F69F68-1D71-4EA1-9EC2-259A7D9C866F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83D4F5C7-DC16-4FF6-9E98-A4FB5480A64E} = {FD7397BD-E121-4F9E-9646-7E6F72820B79}
+		{5C522750-F590-4DF9-BEEA-B088BF7CAAAD} = {FD7397BD-E121-4F9E-9646-7E6F72820B79}
+		{04F69F68-1D71-4EA1-9EC2-259A7D9C866F} = {FD7397BD-E121-4F9E-9646-7E6F72820B79}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83D4F5C7-DC16-4FF6-9E98-A4FB5480A64E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D4F5C7-DC16-4FF6-9E98-A4FB5480A64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D4F5C7-DC16-4FF6-9E98-A4FB5480A64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D4F5C7-DC16-4FF6-9E98-A4FB5480A64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C522750-F590-4DF9-BEEA-B088BF7CAAAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C522750-F590-4DF9-BEEA-B088BF7CAAAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C522750-F590-4DF9-BEEA-B088BF7CAAAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C522750-F590-4DF9-BEEA-B088BF7CAAAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F69F68-1D71-4EA1-9EC2-259A7D9C866F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F69F68-1D71-4EA1-9EC2-259A7D9C866F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F69F68-1D71-4EA1-9EC2-259A7D9C866F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F69F68-1D71-4EA1-9EC2-259A7D9C866F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

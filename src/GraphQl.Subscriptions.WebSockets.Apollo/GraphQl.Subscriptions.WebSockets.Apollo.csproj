@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <RootNamespace>GraphQl.Subscriptions.WebSockets.Apollo</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="2.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GraphQl.Subscriptions.Core\GraphQl.Subscriptions.Core.csproj" />
+      <ProjectReference Include="..\GraphQl.Subscriptions.WebSockets\GraphQl.Subscriptions.WebSockets.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <RootNamespace>GraphQl.Subscriptions.Core</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="GraphQL" Version="2.4.0" />
+      <PackageReference Include="System.Reactive" Version="4.1.3" />
+      <PackageReference Include="System.Reactive.Core" Version="4.1.3" />
+      <PackageReference Include="System.Reactive.Linq" Version="4.1.3" />
+    </ItemGroup>
+
+</Project>
