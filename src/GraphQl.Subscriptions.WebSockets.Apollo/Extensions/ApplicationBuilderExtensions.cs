@@ -9,8 +9,7 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo.Extensions
             string path = "/graphql",
             string protocol = "graphql-ws")
         {
-            instance.UseMiddleware<SubscriptionsMiddleware>(path, protocol);
-            return instance;
+            return instance.UseMiddleware<SubscriptionsMiddleware>(path, protocol);
         }
     }
 }
