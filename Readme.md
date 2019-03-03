@@ -1,4 +1,5 @@
 # GraphQl.Subscriptions
+Base implementation of GraphQL subscriptions using web sockets. It also supports [Apollo](https://www.apollographql.com/) communication protocol. Tested with [graphql-playground](https://github.com/prisma/graphql-playground).
 
 ## Usage
 ```c#
