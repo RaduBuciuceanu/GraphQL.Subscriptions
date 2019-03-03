@@ -22,3 +22,5 @@ public class Startup
     }
 }  
 ```
+
+Don't forget to enable CORS. In most cases you need it for communication between your client and your server.
