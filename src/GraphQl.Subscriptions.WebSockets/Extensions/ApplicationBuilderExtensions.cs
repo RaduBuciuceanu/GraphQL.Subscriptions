@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
-using SubscriptionsMiddleware = GraphQl.Subscriptions.WebSockets.Apollo.Middlewares.Subscriptions;
+using SubscriptionsMiddleware = GraphQL.Subscriptions.WebSockets.Middlewares.Subscriptions;
 
-namespace GraphQl.Subscriptions.WebSockets.Apollo.Extensions
+namespace GraphQL.Subscriptions.WebSockets.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
