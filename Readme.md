@@ -2,6 +2,10 @@
 
 ## Usage
 ```c#
+using GraphQl.Subscriptions.WebSockets.Apollo.Extensions;
+Or
+using GraphQl.Subscriptions.WebSockets.Extensions;
+
 public class Startup
 {
     public static void ConfigureServices(IServiceCollection services)
