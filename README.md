@@ -1,1 +1,1 @@
-# GraphQL.Subscriptions
+# GraphQl.Subscriptions
