@@ -17,7 +17,7 @@ public class Startup
     {
         ...
         builder.UseWebSockets();
-        builder.UseSubscriptions();
+        builder.UseApolloSubscriptions(); or builder.UseWebSocketsSubscriptions();
         ...
     }
 }  
