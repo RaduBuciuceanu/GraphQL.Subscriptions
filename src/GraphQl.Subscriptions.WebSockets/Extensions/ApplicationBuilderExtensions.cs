@@ -5,7 +5,7 @@ namespace GraphQL.Subscriptions.WebSockets.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseSubscriptions(this IApplicationBuilder instance,
+        public static IApplicationBuilder UseWebSocketsSubscriptions(this IApplicationBuilder instance,
             string path = "/graphql",
             string protocol = "graphql-ws")
         {
