@@ -40,7 +40,7 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo.Middlewares
             using (socket)
             {
                 Communicate communication = BuildCommunication(socket, provider);
-                var result = communication.Execute().Wait();
+                communication.Execute().Wait();
             }
         }
 
