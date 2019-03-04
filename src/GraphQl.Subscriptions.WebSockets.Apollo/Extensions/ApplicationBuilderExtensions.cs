@@ -5,7 +5,7 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseSubscriptions(this IApplicationBuilder instance,
+        public static IApplicationBuilder UseApolloSubscriptions(this IApplicationBuilder instance,
             string path = "/graphql",
             string protocol = "graphql-ws")
         {

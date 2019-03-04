@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
+using System.Threading.Tasks;
 using GraphQl.Subscriptions.Core;
 using GraphQl.Subscriptions.WebSockets.Apollo.Dtos;
 using GraphQL;
@@ -32,6 +33,7 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo
         {
             return Observable.Return(Unit.Default)
                 .Do(_ => InitializeCommunication())
+                .Do(_ => KeepConnectionAlive())
                 .Do(_ => StartCommunication());
         }
 
@@ -39,7 +41,15 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo
         {
             _receive.Execute<InitializeConnection>().Wait();
             _send.Execute(new ConnectionAccepted()).ToTask();
-            _send.Execute(new KeepConnectionAlive()).ToTask();
+        }
+
+        private async void KeepConnectionAlive()
+        {
+            while (true)
+            {
+                await _send.Execute(new KeepConnectionAlive()).ToTask();
+                await Task.Delay(5000);
+            }
         }
 
         private void StartCommunication()
