@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.WebSockets;
-using System.Reactive.Threading.Tasks;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using GraphQL.Subscriptions.WebSockets;
 using GraphQL.Types;
@@ -37,12 +37,20 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo.Middlewares
 
         private static void StartCommunication(WebSocket socket, IServiceProvider provider)
         {
+            using (socket)
+            {
+                Communicate communication = BuildCommunication(socket, provider);
+                var result = communication.Execute().Wait();
+            }
+        }
+
+        private static Communicate BuildCommunication(WebSocket socket, IServiceProvider provider)
+        {
             var schema = provider.GetService<Schema>();
             var shouldReceive = new ShouldReceive(socket);
             var receive = new Receive(socket);
             var send = new Send(socket);
-            var communication = new Communicate(schema, shouldReceive, receive, send);
-            communication.Execute().ToTask();
+            return new Communicate(schema, shouldReceive, receive, send);
         }
     }
 }

@@ -26,7 +26,9 @@ namespace GraphQL.Subscriptions.WebSockets
 
         public IObservable<Unit> Execute()
         {
-            return Observable.Return(Unit.Default).Do(_ => StartCommunication());
+            return Observable.Return(Unit.Default)
+                .Do(_ => StartCommunication())
+                .Catch<Unit, Exception>(_ => Observable.Return(Unit.Default));
         }
 
         private void StartCommunication()

@@ -33,23 +33,22 @@ namespace GraphQl.Subscriptions.WebSockets.Apollo
         {
             return Observable.Return(Unit.Default)
                 .Do(_ => InitializeCommunication())
-                .Do(_ => KeepConnectionAlive())
-                .Do(_ => StartCommunication());
+                .Do(_ => KeepConnectionAlive().ToTask())
+                .Do(_ => StartCommunication())
+                .Catch<Unit, Exception>(_ => Observable.Return(Unit.Default));
         }
 
         private void InitializeCommunication()
         {
             _receive.Execute<InitializeConnection>().Wait();
-            _send.Execute(new ConnectionAccepted()).ToTask();
+            _send.Execute(new ConnectionAccepted()).Wait();
         }
 
-        private async void KeepConnectionAlive()
+        private IObservable<Unit> KeepConnectionAlive()
         {
-            while (true)
-            {
-                await _send.Execute(new KeepConnectionAlive()).ToTask();
-                await Task.Delay(5000);
-            }
+            return Observable.Interval(TimeSpan.FromSeconds(5))
+                .Select(_ => _send.Execute(new KeepConnectionAlive()).Wait())
+                .Catch(Observable.Return(Unit.Default));
         }
 
         private void StartCommunication()
